@@ -26,20 +26,33 @@ public class Lab09avst
 		den = input.nextInt();
 	}
 }
-
-
-
 class Rational
 {
-
-	public void displayData()
+	//added!
+	private int num, den, gcf;
 	{
+		int num = num;
+		int den= den;
+	}
+	public Rational(int num, int den);
+
+	public void displayData(){
 		System.out.println();
 		System.out.println(getNum() + "/" + getDen() + " equals " + getDecimal());
 		System.out.println();
 	}
-
-	private void getGCF(int n1,int n2)
+//added!
+	public int getNum(){
+		return num;
+	}
+	public int getDen(){
+		return den;
+	}
+	public double getDecimal(){
+		double decimal = num / den;
+		return decimal;
+	}
+/*	private void getGCF(int n1,int n2)
 	{
 		int rem = 0;
 		do
@@ -54,5 +67,5 @@ class Rational
 			}
 		}
 		while (rem != 0);
-	}
+	} */
 }
