@@ -8,12 +8,12 @@ import java.util.Scanner;
 
 public class Lab09avst
 {
-	private static int num, den;   // numerator and denominator of the rational number
+	private static int firstNum, firstDen;   // numerator and denominator of the rational number
 
 	public static void main (String[] args)
 	{
 		enterData();
-		Rational r = new Rational(num,den);
+		Rational r = new Rational(firstNum,firstDen);
 		r.displayData();
 	}
 
@@ -21,38 +21,57 @@ public class Lab09avst
 	{
 		Scanner input = new Scanner(System.in);
 		System.out.print("\nEnter the numerator ----> ");
-		num = input.nextInt();
+		firstNum = input.nextInt();
 		System.out.print("\nEnter the denominator --> ");
-		den = input.nextInt();
+		firstDen = input.nextInt();
 	}
 }
 class Rational
 {
 	//added!
-	private int num, den, gcf;
-	{
-		int num = num;
-		int den= den;
+	private int reducedNum, reducedDen, gcf, firstNum, firstDen;
+
+	public Rational(int firstNum, int firstDen){
+		this.firstNum = firstNum;
+		this.firstDen= firstDen;
 	}
-	public Rational(int num, int den);
 
 	public void displayData(){
 		System.out.println();
-		System.out.println(getNum() + "/" + getDen() + " equals " + getDecimal());
+		System.out.println(getOriginal() + " equals " + getDecimal());
+		System.out.println();
+		System.out.println(" and reduces to " + getReduced());
 		System.out.println();
 	}
 //added!
 	public int getNum(){
-		return num;
+		return firstNum;
 	}
 	public int getDen(){
-		return den;
+		return firstDen;
 	}
 	public double getDecimal(){
-		double decimal = num / den;
+		double decimal = (double) firstNum / firstDen;
 		return decimal;
 	}
-/*	private void getGCF(int n1,int n2)
+	public String getOriginal(){
+		String original = "" + firstNum + "/" + firstDen;
+		return original;
+	}
+
+
+
+
+
+	private double reduce(){
+		
+		getGCF(reducedNum, reducedDen);
+	}
+	public String getReduced(firstNum, firstDen){
+		String reducedFraction = "" + reducedNum + "/" + reducedDen;
+		return reducedFraction;
+	}
+	private void getGCF(int n1,int n2)
 	{
 		int rem = 0;
 		do
@@ -67,5 +86,5 @@ class Rational
 			}
 		}
 		while (rem != 0);
-	} */
+	}
 }
