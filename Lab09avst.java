@@ -59,15 +59,13 @@ class Rational
 		return original;
 	}
 
-
-
-
-
-	private double reduce(){
-		
-		getGCF(reducedNum, reducedDen);
+	public void reduce(){
+		getGCF(firstNum, firstDen);
+		reducedNum = firstNum / gcf;
+		reducedDen = firstDen / gcf;
 	}
-	public String getReduced(firstNum, firstDen){
+	public String getReduced(){
+		reduce();
 		String reducedFraction = "" + reducedNum + "/" + reducedDen;
 		return reducedFraction;
 	}
